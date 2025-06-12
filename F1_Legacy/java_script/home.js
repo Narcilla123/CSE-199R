@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                           <p class="dynamic-content-text">Red Bull Racing has emerged as a dominant force in Formula 1, securing multiple Constructors' and Drivers' Championships. Known for their innovative aerodynamics and fierce competition, they continue to push the boundaries of performance.</p> 
 
-                                          <p class="dynamic-content-text">Key drivers include Max Verstappen and Sergio Pérez.</p>`; 
+                                          <p class="dynamic-content-text">Key drivers include Max Verstappen and Yuki Tsunoda.</p>`; 
 
                         break; 
 
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                           <p class="dynamic-content-text">Ferrari is synonymous with Formula 1, being the oldest and most successful team in the sport's history. Their passionate Tifosi and iconic red cars are a cornerstone of F1.</p> 
 
-                                          <p class="dynamic-content-text">Drivers: Charles Leclerc and Carlos Sainz.</p>`; 
+                                          <p class="dynamic-content-text">Drivers: Lewis Hamilton and Charles Leclerc.</p>`; 
 
                         break; 
 
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                           <p class="dynamic-content-text">Mercedes dominated the hybrid era of Formula 1, securing an unprecedented eight consecutive Constructors' Championships. Their engineering excellence and powerful engines set new benchmarks.</p> 
 
-                                          <p class="dynamic-content-text">Key drivers include Lewis Hamilton and George Russell.</p>`; 
+                                          <p class="dynamic-content-text">Key drivers include George Russell and Kimi Antonelli.</p>`; 
 
                         break; 
 
