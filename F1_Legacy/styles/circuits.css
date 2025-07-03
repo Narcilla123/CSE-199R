@@ -1,0 +1,649 @@
+/*
+ * circuits.css
+ * This file contains custom CSS rules specifically for the Circuits page.
+ */
+
+/* Import the Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base Styles (consistent across the website) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1c1c1c; /* Even darker background for more contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #f0f0f0; /* Lighter base text color */
+}
+
+.container {
+    background-color: #0d0d0d; /* Very dark content area, almost black */
+    border-radius: 1rem; /* More pronounced rounded corners */
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 10px 15px -5px rgba(0, 0, 0, 0.4); /* Deeper, more diffused shadow */
+    padding: 3rem; /* Increased padding */
+    max-width: 1440px; /* Increased width to accommodate 4 columns */
+    width: 95%;
+    margin: 2.5rem 0; /* More margin top/bottom */
+    border: 1px solid #333; /* Slightly darker subtle border */
+    /* REMOVED: overflow: hidden; -> This was likely causing the scrolling issue */
+}
+
+/* Header Section (consistent across the website) */
+header {
+    text-align: left;
+    padding-bottom: 2rem; /* More spacing */
+    border-bottom: 2px solid #444; /* Darker, more prominent border */
+    margin-bottom: 3rem; /* More spacing */
+    width: 100%;
+}
+
+/* F1 Logo Styling (consistent across the website) */
+.f1-logo {
+    max-width: 200px; /* Larger logo */
+    height: auto;
+    display: block;
+    margin-bottom: 1.8rem; /* More space below logo */
+}
+
+/* Navigation (consistent across the website) */
+nav {
+    background-color: #222222; /* Darker background for nav */
+    padding: 1.5rem; /* Increased padding */
+    border-radius: 0.75rem; /* More rounded */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    justify-content: center;
+    gap: 3rem; /* More space between nav items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem; /* Slightly larger font */
+    font-weight: 700; /* Bolder font */
+    color: #b0b0b0; /* Softer text color for contrast */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #e63946 #333; /* Adjusted scrollbar color to match accent */
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.8rem;
+}
+
+/* Custom Webkit scrollbar styles */
+nav ul::-webkit-scrollbar {
+    height: 12px; /* Taller scrollbar */
+}
+
+nav ul::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+nav ul::-webkit-scrollbar-thumb {
+    background: #e63946; /* More vibrant red */
+    border-radius: 10px;
+}
+
+nav ul::-webkit-scrollbar-thumb:hover {
+    background: #c21f2b; /* Darker red on hover */
+}
+
+nav ul li {
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        justify-content: flex-start;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 1rem 1.5rem; /* More padding for links */
+    border-radius: 0.5rem;
+    transition: all 0.4s ease-in-out; /* Smoother transition */
+    position: relative; /* For pseudo-element effects */
+    overflow: hidden; /* For hover glow */
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(230, 57, 70, 0.3); /* Subtle glow color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: #e63946; /* More vibrant red */
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Main Content Area */
+main.main-content {
+    margin-top: 3rem; /* More space after header */
+    margin-bottom: 2.5rem;
+    width: 100%;
+    padding: 0 2.5rem; /* Increased padding */
+    box-sizing: border-box;
+}
+
+/* --- Circuits Header Visual Section --- */
+.circuits-header-visual {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Even taller for more impact */
+    margin-bottom: 4rem; /* More space below the header visual */
+    border-radius: 1rem; /* Consistent rounded corners */
+    overflow: hidden; /* Keep this to clip the image/video */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9), 0 25px 50px -12px rgba(0, 0, 0, 0.7); /* Deep inner and outer shadow */
+    border: 3px solid #666; /* More distinct border */
+    background: linear-gradient(45deg, #0f0f0f, #2a2a2a); /* Dark, subtle gradient fallback */
+}
+
+.circuits-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4; /* More transparent to blend with overlay */
+    filter: brightness(0.7) grayscale(0.4); /* Stronger mood filter */
+    transition: filter 0.6s ease-in-out;
+}
+
+.circuits-header-visual:hover .circuits-background-image {
+    filter: brightness(1) grayscale(0); /* Image brightens and colors on hover */
+    opacity: 0.6;
+}
+
+.header-overlay-title-area {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.85) 0%, rgba(30, 30, 30, 0.85) 100%); /* Translucent dark gradient */
+    backdrop-filter: blur(5px); /* Subtle blur effect */
+    padding: 2.5rem 4rem; /* Increased padding */
+    border-radius: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 75%; /* Slightly narrower for focus */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1); /* Enhanced shadows */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* More visible border */
+    transition: all 0.5s ease-in-out;
+}
+
+.circuits-header-visual:hover .header-overlay-title-area {
+    transform: scale(1.03); /* Slight scale up on hover */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.header-overlay-title-area h2 {
+    font-size: 4rem; /* Even larger and more impactful title */
+    font-weight: 900;
+    color: #00bcd4; /* A brighter, more modern teal */
+    margin-bottom: 1.2rem;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9); /* Stronger, deeper shadow */
+    text-transform: uppercase;
+    letter-spacing: 4px; /* More spacing for impact */
+    line-height: 1.1;
+}
+
+.header-overlay-title-area p {
+    font-size: 1.6rem; /* Larger descriptive text */
+    color: #e0e0e0; /* Brighter white */
+    font-weight: 400; /* Lighter weight for balance */
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    opacity: 0.9;
+}
+/* --- End Circuits Header Visual Section --- */
+
+
+/* Circuits Section */
+.circuits-section {
+    border-radius: 1rem; /* Consistent rounded corners */
+    padding: 3rem; /* More generous padding */
+    margin-bottom: 4rem; /* Increased space between section and bottom */
+    background: linear-gradient(145deg, #161616 0%, #080808 100%); /* Deeper, more distinct dark gradient */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03); /* More prominent shadows */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* More subtle inner border */
+}
+
+.circuits-section h3 {
+    font-size: 3.2rem; /* Even more prominent section title */
+    font-weight: 900;
+    color: #e63946; /* Red accent for the section title */
+    margin-bottom: 3rem; /* More space below title */
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* More spacing for impact */
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    position: relative;
+    padding-bottom: 1rem; /* Space for the underline */
+}
+
+.circuits-section h3::after {
+    content: '';
+    display: block;
+    width: 180px; /* Longer, bolder underline */
+    height: 7px; /* Thicker underline */
+    background-color: #e63946; /* Matches title color */
+    margin: 1rem auto 0; /* More space below text */
+    border-radius: 5px;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.6); /* Subtle glow for the underline */
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.circuits-section:hover h3::after {
+    width: 220px; /* Expand underline on hover */
+    box-shadow: 0 0 25px rgba(230, 57, 70, 0.8);
+}
+
+.circuit-grid {
+    display: grid;
+    /* Adjusted minmax to allow 4 columns on wider screens */
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 3.5rem; /* Increased space between cards */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.circuit-card {
+    background: linear-gradient(160deg, rgba(25, 25, 25, 0.98) 0%, rgba(50, 50, 50, 0.98) 100%); /* Subtle dark gradient for cards */
+    border-radius: 1.2rem; /* More rounded corners for a modern look */
+    padding: 2.2rem; /* Increased padding */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.08); /* Enhanced shadows */
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.5s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.15); /* More prominent subtle border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden; /* Keep this to contain ::before pseudo-element */
+}
+
+.circuit-card::before { /* Abstract background overlay with more detail */
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at 15% 15%, rgba(0, 188, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(230, 57, 70, 0.08) 0%, transparent 40%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0%, transparent 50%); /* Added subtle linear gradient */
+    transform: rotate(20deg);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in-out;
+    opacity: 0.8;
+}
+
+.circuit-card:hover::before {
+    transform: rotate(0deg) scale(1.1); /* More dynamic animation on hover */
+    opacity: 0.15;
+}
+
+.circuit-card:hover {
+    transform: translateY(-15px); /* Lift significantly on hover */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.2);
+    border-color: #00bcd4; /* Border glows with circuits accent color */
+}
+
+.circuit-photo {
+    width: 100%;
+    height: 220px; /* Taller photo for more visual presence */
+    object-fit: cover;
+    border-radius: 1rem; /* Match card radius */
+    margin-bottom: 2rem; /* More space below photo */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 4px solid #00bcd4; /* Accent border for photos, brighter teal */
+    filter: brightness(0.9) contrast(1.1); /* Subtle image enhancement */
+    transition: all 0.4s ease-in-out;
+}
+
+.circuit-card:hover .circuit-photo {
+    filter: brightness(1.1) contrast(1.2); /* Enhance photo on hover */
+    border-color: #e63946; /* Change border color on hover */
+}
+
+.circuit-card h4 {
+    font-size: 2.2rem; /* Larger circuit name */
+    font-weight: 900; /* Bolder font */
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    z-index: 1;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.circuit-card .circuit-details {
+    font-size: 1.15rem; /* Clearer base font for details */
+    color: #c8c8c8; /* Brighter, more legible grey */
+    line-height: 1.9; /* Increased line height for readability */
+    text-align: left;
+    margin-top: 1rem;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+.circuit-card .circuit-details strong {
+    color: #f0f0f0; /* Ensure bold stats stand out */
+    font-weight: 700;
+    display: block; /* Each detail on a new line */
+    margin-top: 0.5rem;
+}
+
+.circuit-card .track-visual-description {
+    margin-top: 2rem; /* More space for the specific description */
+    font-style: italic;
+    color: #a8a8a8; /* Softer grey for description */
+    font-size: 1rem; /* Slightly larger font */
+    padding-top: 1.5rem; /* More padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Solid, subtle separator */
+    text-align: left;
+    transition: all 0.4s ease-in-out;
+}
+.circuit-card:hover .track-visual-description {
+    color: #b8b8b8; /* Slightly brighter on hover */
+}
+.circuit-card .track-visual-description strong {
+    color: #f0f0f0;
+    font-style: normal;
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1300px) { /* New breakpoint for 4 columns */
+    .circuit-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem;
+    }
+    .f1-logo {
+        max-width: 160px;
+    }
+    nav ul {
+        gap: 2rem;
+        font-size: 1.2rem;
+    }
+    .circuits-header-visual {
+        height: 280px;
+        margin-bottom: 3rem;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 3.2rem;
+        letter-spacing: 2.5px;
+    }
+    .header-overlay-title-area p {
+        font-size: 1.4rem;
+    }
+    .circuits-section {
+        padding: 2rem;
+    }
+    .circuits-section h3 {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+    .circuits-section h3::after {
+        width: 150px;
+        height: 6px;
+    }
+    .circuit-grid {
+        /* Adjusted for 3 columns on tablets */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    .circuit-card {
+        padding: 1.8rem;
+        border-radius: 1rem;
+    }
+    .circuit-photo {
+        height: 180px;
+        margin-bottom: 1.5rem;
+    }
+    .circuit-card h4 {
+        font-size: 1.8rem;
+    }
+    .circuit-card .circuit-details {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        border-radius: 0.8rem;
+    }
+    .f1-logo {
+        max-width: 140px;
+        margin-bottom: 1.2rem;
+    }
+    header {
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    nav {
+        padding: 1rem;
+        border-radius: 0.6rem;
+    }
+    nav ul {
+        gap: 1.5rem;
+        font-size: 1rem;
+        padding-bottom: 0.6rem;
+    }
+    nav ul::-webkit-scrollbar {
+        height: 8px;
+    }
+    nav a {
+        padding: 0.8rem 1.2rem;
+    }
+    main.main-content {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    .circuits-header-visual {
+        height: 220px;
+        margin-bottom: 2.5rem;
+        border-radius: 0.8rem;
+    }
+    .header-overlay-title-area {
+        padding: 2rem 3rem;
+        border-radius: 0.7rem;
+        max-width: 90%;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+    .header-overlay-title-area p {
+        font-size: 1.2rem;
+    }
+    .circuits-section {
+        padding: 1.8rem;
+        margin-bottom: 3rem;
+        border-radius: 0.8rem;
+    }
+    .circuits-section h3 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        letter-spacing: 1.5px;
+        padding-bottom: 0.8rem;
+    }
+    .circuits-section h3::after {
+        width: 120px;
+        height: 5px;
+        margin-top: 0.8rem;
+    }
+    .circuit-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+        gap: 2rem;
+    }
+    .circuit-card {
+        padding: 1.5rem;
+        border-radius: 0.9rem;
+    }
+    .circuit-photo {
+        height: 160px;
+        margin-bottom: 1.5rem;
+        border-width: 3px;
+    }
+    .circuit-card h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    .circuit-card .circuit-details {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    .circuit-card .track-visual-description {
+        font-size: 0.85rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.7rem;
+    }
+    .f1-logo {
+        max-width: 100px;
+        margin-bottom: 1rem;
+    }
+    header {
+        padding-bottom: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    nav {
+        padding: 0.8rem;
+        border-radius: 0.5rem;
+    }
+    nav ul {
+        font-size: 0.8rem;
+        gap: 0.8rem;
+        padding-bottom: 0.4rem;
+    }
+    nav ul::-webkit-scrollbar {
+        height: 6px;
+    }
+    nav a {
+        padding: 0.6rem 1rem;
+    }
+    main.main-content {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .circuits-header-visual {
+        height: 180px;
+        margin-bottom: 2rem;
+        border-radius: 0.7rem;
+        border-width: 2px;
+    }
+    .header-overlay-title-area {
+        padding: 1.5rem 2rem;
+        border-radius: 0.6rem;
+        max-width: 95%;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.8rem;
+    }
+    .header-overlay-title-area p {
+        font-size: 0.9rem;
+    }
+    .circuits-section {
+        padding: 1.2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.7rem;
+    }
+    .circuits-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        padding-bottom: 0.6rem;
+    }
+    .circuits-section h3::after {
+        width: 100px;
+        height: 4px;
+        margin-top: 0.6rem;
+    }
+    .circuit-card {
+        padding: 1.2rem;
+        border-radius: 0.8rem;
+    }
+    .circuit-photo {
+        height: 140px;
+        margin-bottom: 1.2rem;
+        border-width: 2px;
+    }
+    .circuit-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    .circuit-card .circuit-details {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+    .circuit-card .circuit-details strong {
+        margin-top: 0.2rem;
+    }
+    .circuit-card .track-visual-description {
+        font-size: 0.75rem;
+        margin-top: 1rem;
+        padding-top: 0.8rem;
+    }
+}

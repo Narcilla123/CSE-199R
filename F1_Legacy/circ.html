@@ -3,25 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Circuits</title>
+    <title>F1 Hub - Circuits</title>
+    <link rel="icon" type="image/x-icon" href="images/F1-Logo.png">
+    <link rel="stylesheet" href="styles/circuits.css">
 </head>
 <body>
-    <header>
-        <h4>
-            Circuits(Work in Progress)
-        </h4>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="timeline.html">F1 Timeline</a>
-            <a href="driver_prof.html">Driver Profiles</a>
-            <a href="team_hist.html">Team History</a>
-            <a href="circ.html">Circuits Archive</a>
-            <a href="cars.html">Technical Evolution</a>
-            <a href="moments.html">Historic Moments</a>
-        </nav>
-    </header>
-    <main>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="images/F1-Logo.png" alt="Formula 1 Logo" class="f1-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="timeline.html">TIMELINE</a></li>
+                    <li><a href="driver-profile.html">DRIVER PROFILE</a></li>
+                    <li><a href="team-history.html">TEAM HISTORY</a></li>
+                    <li><a href="circ.html">CIRCUITS</a></li>
+                    <li><a href="car-evolutions.html">CAR EVOLUTIONS</a></li>
+                    <li><a href="moments.html">MOMENTS</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    </main>
+        <!-- Main content for the Circuits page -->
+        <main class="main-content">
+            <div class="circuits-header-visual">
+                <!-- Background image/video placeholder for Circuits page header -->
+                <img src="images/circuits_header.jpg" alt="F1 Race Track View" class="circuits-background-image">
+                <div class="header-overlay-title-area">
+                    <h2>Formula 1 Circuits</h2>
+                    <p>Explore the legendary tracks that challenge the world's best drivers.</p>
+                </div>
+            </div>
+
+            <section class="circuits-section">
+                <h3>2025 Formula 1 Grand Prix Circuits</h3>
+                <div class="circuit-grid">
+
+                    <!-- Circuit Card: Australian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/australia.jpg" alt="Albert Park Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 LOUIS VUITTON AUSTRALIAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Melbourne, Australia<br>
+                            <strong>Circuit:</strong> Albert Park Circuit<br>
+                            <br>
+                            A semi-permanent street circuit known for its fast, flowing sections and challenging braking zones. It combines public roads with purpose-built track sections, offering a unique blend of street circuit feel and traditional racing.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Chinese Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/china.jpg" alt="Shanghai International Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 HEINEKEN CHINESE GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Shanghai, China<br>
+                            <strong>Circuit:</strong> Shanghai International Circuit<br>
+                            <br>
+                            Famous for its unique 'snail' shaped Turn 1-2 complex and long back straight. This modern Hermann Tilke-designed track offers a variety of corner speeds and good overtaking opportunities.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Japanese Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/suzuka.jpg" alt="Suzuka International Racing Course" class="circuit-photo">
+                        <h4>FORMULA 1 LENOVO JAPANESE GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Suzuka, Japan<br>
+                            <strong>Circuit:</strong> Suzuka International Racing Course<br>
+                            <br>
+                            Celebrated for its unique figure-of-eight layout, challenging high-speed S-curves, and iconic Degner curves. It's a favorite among drivers for its flow and technical demands, often hosting crucial championship deciders.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Bahrain Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/bahrain.jpg" alt="Bahrain International Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Sakhir, Bahrain<br>
+                            <strong>Circuit:</strong> Bahrain International Circuit<br>
+                            <br>
+                            A modern desert circuit featuring a mix of high-speed sections and challenging low-speed corners. It's known for its abrasive surface and often hosts the season-opening night race under floodlights.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Saudi Arabian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/saudi_arabia.jpg" alt="Jeddah Corniche Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Jeddah, Saudi Arabia<br>
+                            <strong>Circuit:</strong> Jeddah Corniche Circuit<br>
+                            <br>
+                            The fastest street circuit on the F1 calendar, characterized by its numerous high-speed corners and narrow sections. It's a thrilling challenge that demands extreme precision and courage.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Miami Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/miami.jpg" alt="Miami International Autodrome" class="circuit-photo">
+                        <h4>FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Miami Gardens, USA<br>
+                            <strong>Circuit:</strong> Miami International Autodrome<br>
+                            <br>
+                            A purpose-built street circuit set around Hard Rock Stadium. It features a unique combination of high-speed straights, medium-speed corners, and a slow, technical chicane. Known for its vibrant atmosphere.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Emilia Romagna Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/imola.jpg" alt="Autodromo Internazionale Enzo e Dino Ferrari" class="circuit-photo">
+                        <h4>FORMULA 1 AWS GRAN PREMIO DEL MADE IN ITALY E DELL'EMILIA-ROMAGNA 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Imola, Italy<br>
+                            <strong>Circuit:</strong> Autodromo Internazionale Enzo e Dino Ferrari<br>
+                            <br>
+                            A classic, old-school circuit with a rich history, known for its demanding chicanes, high-speed sections, and a flowing layout that punishes mistakes. It's a driver's favorite due to its challenging nature.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Monaco Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/monaco.jpg" alt="Circuit de Monaco" class="circuit-photo">
+                        <h4>FORMULA 1 TAG HEUER GRAND PRIX DE MONACO 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Monte Carlo, Monaco<br>
+                            <strong>Circuit:</strong> Circuit de Monaco<br>
+                            <br>
+                            The iconic street circuit of Monaco is synonymous with glamour and precision. Its tight corners, narrow passages, and elevation changes make it one of the most demanding and prestigious races on the calendar, where qualifying is king.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Spanish Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/barcelona.jpg" alt="Circuit de Barcelona-Catalunya" class="circuit-photo">
+                        <h4>FORMULA 1 ARAMCO GRAN PREMIO DE ESPAÑA 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Montmeló, Spain<br>
+                            <strong>Circuit:</strong> Circuit de Barcelona-Catalunya<br>
+                            <br>
+                            A well-rounded circuit used extensively for testing, featuring a mix of high-speed and technical sections. It's a good all-rounder that tests a car's overall performance and a driver's consistency.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Canadian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/canada.jpg" alt="Circuit Gilles Villeneuve" class="circuit-photo">
+                        <h4>FORMULA 1 PIRELLI GRAND PRIX DU CANADA 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Montreal, Canada<br>
+                            <strong>Circuit:</strong> Circuit Gilles Villeneuve<br>
+                            <br>
+                            A semi-permanent street circuit known for its long straights, tight chicanes, and the famous 'Wall of Champions'. It often produces exciting races with good overtaking opportunities.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Austrian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/austria.jpg" alt="Red Bull Ring" class="circuit-photo">
+                        <h4>FORMULA 1 MSC CRUISES AUSTRIAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Spielberg, Austria<br>
+                            <strong>Circuit:</strong> Red Bull Ring<br>
+                            <br>
+                            A compact and picturesque circuit set in the Styrian mountains. It features short straights, hard braking zones, and a flowing middle sector, leading to close racing and plenty of action.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: British Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/silverstone.jpg" alt="Silverstone Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 QATAR AIRWAYS BRITISH GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Silverstone, United Kingdom<br>
+                            <strong>Circuit:</strong> Silverstone Circuit<br>
+                            <br>
+                            A historic circuit known for its high-speed corners like Copse, Maggotts, and Becketts, Silverstone is a true test of a car's aerodynamic prowess and a driver's bravery. It's often referred to as the "home of British motorsport."
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Belgian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/spa.jpg" alt="Circuit de Spa-Francorchamps" class="circuit-photo">
+                        <h4>FORMULA 1 MOËT & CHANDON BELGIAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Stavelot, Belgium<br>
+                            <strong>Circuit:</strong> Circuit de Spa-Francorchamps<br>
+                            <br>
+                            A favorite among drivers, Spa is known for its dramatic elevation changes, unpredictable weather, and legendary corners like Eau Rouge and Blanchimont. It's the longest track on the F1 calendar and offers thrilling racing.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Hungarian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/hungary.jpg" alt="Hungaroring" class="circuit-photo">
+                        <h4>FORMULA 1 LENOVO HUNGARIAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Mogyoród, Hungary<br>
+                            <strong>Circuit:</strong> Hungaroring<br>
+                            <br>
+                            Often described as "Monaco without the buildings," the Hungaroring is a tight and twisty circuit with few overtaking opportunities, making qualifying and strategy critical. It's a physically demanding race for drivers.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Dutch Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/zandvoort.jpg" alt="Circuit Zandvoort" class="circuit-photo">
+                        <h4>FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Zandvoort, Netherlands<br>
+                            <strong>Circuit:</strong> Circuit Zandvoort<br>
+                            <br>
+                            A historic circuit famous for its fast, banked corners and challenging undulations. Located near the coast, it's a tight and exhilarating track that puts car balance and driver skill to the test.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Italian Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/monza.jpg" alt="Autodromo Nazionale Monza" class="circuit-photo">
+                        <h4>FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Monza, Italy<br>
+                            <strong>Circuit:</strong> Autodromo Nazionale Monza<br>
+                            <br>
+                            Affectionately called the "Temple of Speed," Monza is characterized by its long straights and fast chicanes. It's the spiritual home of Ferrari and a place where engine power and low-downforce setups are crucial for success.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Azerbaijan Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/baku.jpg" alt="Baku City Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 QATAR AIRWAYS AZERBAIJAN GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Baku, Azerbaijan<br>
+                            <strong>Circuit:</strong> Baku City Circuit<br>
+                            <br>
+                            A thrilling street circuit that blends extremely long straights with incredibly tight, medieval old city sections. It's known for producing unpredictable races and dramatic overtakes.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Singapore Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/singapore.jpg" alt="Marina Bay Street Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 SINGAPORE AIRLINES SINGAPORE GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Singapore<br>
+                            <strong>Circuit:</strong> Marina Bay Street Circuit<br>
+                            <br>
+                            The original night race in F1, Marina Bay is a dazzling street circuit set against the stunning Singapore skyline. Its bumpy surface, high humidity, and numerous turns make it a physically demanding and visually spectacular event.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: United States Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/usa.jpg" alt="Circuit of the Americas (COTA)" class="circuit-photo">
+                        <h4>FORMULA 1 MSC CRUISES UNITED STATES GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Austin, USA<br>
+                            <strong>Circuit:</strong> Circuit of the Americas (COTA)<br>
+                            <br>
+                            A modern circuit inspired by classic European tracks, featuring a challenging uphill run to Turn 1 and a mix of high-speed esses and tight hairpins. It's designed to promote overtaking.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Mexico City Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/mexico.jpg" alt="Autódromo Hermanos Rodríguez" class="circuit-photo">
+                        <h4>FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Mexico City, Mexico<br>
+                            <strong>Circuit:</strong> Autódromo Hermanos Rodríguez<br>
+                            <br>
+                            Known for its high altitude, which heavily impacts car performance, and the stadium section with its passionate crowd. The circuit combines fast straights with slow, technical corners.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: São Paulo Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/brazil.jpg" alt="Autódromo José Carlos Pace (Interlagos)" class="circuit-photo">
+                        <h4>FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> São Paulo, Brazil<br>
+                            <strong>Circuit:</strong> Autódromo José Carlos Pace (Interlagos)<br>
+                            <br>
+                            A short, undulating circuit with a counter-clockwise layout and challenging elevation changes. It's famous for its dramatic races, often influenced by unpredictable weather.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Las Vegas Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/las_vegas.jpg" alt="Las Vegas Street Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 HEINEKEN LAS VEGAS GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Las Vegas, USA<br>
+                            <strong>Circuit:</strong> Las Vegas Street Circuit<br>
+                            <br>
+                            A spectacular night street race on the iconic Las Vegas Strip, featuring long straights for high top speeds and sharp corners for overtakes, all set against a vibrant city backdrop.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Qatar Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/qatar.jpg" alt="Lusail International Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 QATAR AIRWAYS QATAR GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Lusail, Qatar<br>
+                            <strong>Circuit:</strong> Lusail International Circuit<br>
+                            <br>
+                            A relatively flat circuit known for its medium to high-speed corners, reminiscent of tracks like Mugello. It often presents challenges with sand on track and high temperatures.
+                        </p>
+                    </div>
+
+                    <!-- Circuit Card: Abu Dhabi Grand Prix -->
+                    <div class="circuit-card">
+                        <img src="images/circuits/abu_dhabi.jpg" alt="Yas Marina Circuit" class="circuit-photo">
+                        <h4>FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2025</h4>
+                        <p class="circuit-details">
+                            <strong>Location:</strong> Abu Dhabi, UAE<br>
+                            <strong>Circuit:</strong> Yas Marina Circuit<br>
+                            <br>
+                            A modern circuit known for its futuristic facilities, twilight race, and recent layout changes designed to improve racing. It features a mix of tight corners, medium-speed sections, and two long straights.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
