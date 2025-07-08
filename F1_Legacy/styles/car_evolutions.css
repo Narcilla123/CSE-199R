@@ -1,6 +1,6 @@
 /*
- * timeline.css
- * This file contains custom CSS rules specifically for the F1 Timeline page.
+ * car_evolutions.css
+ * This file contains custom CSS rules specifically for the Car Evolutions page.
  */
 
 /* Import the Inter font from Google Fonts */
@@ -27,7 +27,7 @@ html, body {
     border-radius: 1rem; /* More pronounced rounded corners */
     box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 10px 15px -5px rgba(0, 0, 0, 0.4); /* Deeper, more diffused shadow */
     padding: 3rem; /* Increased padding */
-    max-width: 1440px; /* Consistent max-width for wider layouts */
+    max-width: 1440px; /* Increased width to accommodate 4 columns */
     width: 95%;
     margin: 2.5rem 0; /* More margin top/bottom */
     border: 1px solid #333; /* Slightly darker subtle border */
@@ -150,18 +150,18 @@ nav a:hover {
 
 /* Main Content Area */
 main.main-content {
-    margin-top: 3rem;
+    margin-top: 3rem; /* More space after header */
     margin-bottom: 2.5rem;
     width: 100%;
-    padding: 0 2.5rem;
+    padding: 0 2.5rem; /* Increased padding */
     box-sizing: border-box;
 }
 
-/* --- Timeline Header Visual Section --- */
-.timeline-header-visual {
+/* --- Car Evolutions Header Visual Section --- */
+.car-evolutions-header-visual {
     position: relative;
     width: 100%;
-    height: 350px; /* Consistent height with other header visuals */
+    height: 350px; /* Consistent height with Circuits header */
     margin-bottom: 4rem;
     border-radius: 1rem;
     overflow: hidden;
@@ -173,7 +173,7 @@ main.main-content {
     background: linear-gradient(45deg, #0f0f0f, #2a2a2a); /* Dark, subtle gradient fallback */
 }
 
-.timeline-background-image {
+.car-evolutions-background-image {
     position: absolute;
     top: 0;
     left: 0;
@@ -186,7 +186,7 @@ main.main-content {
     transition: filter 0.6s ease-in-out;
 }
 
-.timeline-header-visual:hover .timeline-background-image {
+.car-evolutions-header-visual:hover .car-evolutions-background-image {
     filter: brightness(1) grayscale(0);
     opacity: 0.6;
 }
@@ -209,7 +209,7 @@ main.main-content {
     transition: all 0.5s ease-in-out;
 }
 
-.timeline-header-visual:hover .header-overlay-title-area {
+.car-evolutions-header-visual:hover .header-overlay-title-area {
     transform: scale(1.03);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
@@ -217,7 +217,7 @@ main.main-content {
 .header-overlay-title-area h2 {
     font-size: 4rem;
     font-weight: 900;
-    color: #e63946; /* Red accent for Timeline theme */
+    color: #00bcd4; /* Teal accent for consistency with Circuits */
     margin-bottom: 1.2rem;
     text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
     text-transform: uppercase;
@@ -234,65 +234,23 @@ main.main-content {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     opacity: 0.9;
 }
-/* --- End Timeline Header Visual Section --- */
+/* --- End Car Evolutions Header Visual Section --- */
 
 
-/* Timeline Introduction Section */
-.timeline-introduction {
+/* Evolution Section (for each era) */
+.evolution-section {
     border-radius: 1rem;
     padding: 3rem;
     margin-bottom: 4rem;
     background: linear-gradient(145deg, #161616 0%, #080808 100%);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    text-align: center;
 }
 
-.timeline-introduction h3 {
+.evolution-section h3 {
     font-size: 3.2rem;
     font-weight: 900;
-    color: #00bcd4; /* Teal accent for introduction title */
-    margin-bottom: 2.5rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-    position: relative;
-    padding-bottom: 1rem;
-}
-
-.timeline-introduction h3::after {
-    content: '';
-    display: block;
-    width: 180px;
-    height: 7px;
-    background-color: #00bcd4;
-    margin: 1rem auto 0;
-    border-radius: 5px;
-    opacity: 0.9;
-    box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
-}
-
-.timeline-introduction p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #c8c8c8;
-    max-width: 900px;
-    margin: 0 auto 1.5rem auto;
-}
-
-/* Championship Timeline Section */
-.championship-timeline-section {
-    border-radius: 1rem;
-    padding: 3rem;
-    background: linear-gradient(145deg, #161616 0%, #080808 100%);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.championship-timeline-section h3 {
-    font-size: 3.2rem;
-    font-weight: 900;
-    color: #e63946; /* Red accent for section title */
+    color: #e63946; /* Red accent for section titles */
     margin-bottom: 3rem;
     text-align: center;
     text-transform: uppercase;
@@ -302,7 +260,7 @@ main.main-content {
     padding-bottom: 1rem;
 }
 
-.championship-timeline-section h3::after {
+.evolution-section h3::after {
     content: '';
     display: block;
     width: 180px;
@@ -312,132 +270,132 @@ main.main-content {
     border-radius: 5px;
     opacity: 0.9;
     box-shadow: 0 0 15px rgba(230, 57, 70, 0.6);
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
-.timeline-grid {
+.evolution-section:hover h3::after {
+    width: 220px;
+    box-shadow: 0 0 25px rgba(230, 57, 70, 0.8);
+}
+
+.car-evolution-grid {
     display: grid;
-    /* Two columns for year and content */
-    grid-template-columns: 150px 1fr; /* Fixed width for year, fluid for content */
-    gap: 2rem 3rem; /* Row gap and column gap */
-    position: relative;
-    padding-left: 20px; /* Space for the vertical line */
+    /* Adjusted for 4 columns on wider screens, similar to circuits */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3.5rem;
+    justify-content: center;
+    align-items: stretch;
 }
 
-.timeline-grid::before {
-    content: '';
-    position: absolute;
-    left: 45px; /* Position the vertical line */
-    top: 0;
-    bottom: 0;
-    width: 4px; /* Thickness of the line */
-    background: linear-gradient(to bottom, #e63946, #00bcd4); /* Gradient line */
-    border-radius: 2px;
-    z-index: 0;
-}
-
-.timeline-entry {
-    display: contents; /* Allows children to be direct grid items */
-}
-
-.timeline-year {
-    grid-column: 1 / 2; /* Place year in the first column */
-    font-size: 2.5rem; /* Larger year font */
-    font-weight: 900;
-    color: #00bcd4; /* Teal color for years */
-    text-align: right;
-    padding-right: 2rem; /* Space between year and line */
-    position: relative;
-    z-index: 1; /* Ensure year is above the line */
-    line-height: 1; /* Adjust line height to prevent extra space */
-    align-self: center; /* Vertically align in the middle of its row */
-}
-
-.timeline-year::after {
-    content: '';
-    position: absolute;
-    right: -10px; /* Position the dot on the line */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* Size of the dot */
-    height: 20px;
-    background-color: #e63946; /* Red dot */
-    border-radius: 50%;
-    border: 3px solid #0d0d0d; /* Dark border to stand out from line */
-    box-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
-    z-index: 2;
-}
-
-.timeline-content {
-    grid-column: 2 / 3; /* Place content in the second column */
+.car-era-card {
+    background: linear-gradient(160deg, rgba(25, 25, 25, 0.98) 0%, rgba(50, 50, 50, 0.98) 100%);
+    border-radius: 1.2rem;
+    padding: 2.2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.08);
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.5s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.15);
     display: flex;
-    flex-wrap: wrap; /* Allow champion cards to wrap */
-    gap: 1.5rem; /* Space between champion cards */
-    padding-bottom: 2rem; /* Space after content for the next entry */
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Subtle separator between entries */
-    margin-bottom: 2rem; /* Space between entries */
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.timeline-content:last-child {
-    border-bottom: none; /* No border for the last entry */
-    margin-bottom: 0;
-    padding-bottom: 0;
+.car-era-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at 15% 15%, rgba(0, 188, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(230, 57, 70, 0.08) 0%, transparent 40%),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+    transform: rotate(20deg);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in-out;
+    opacity: 0.8;
 }
 
-.champion-card {
-    background: linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(50, 50, 50, 0.95) 100%);
-    border-radius: 0.8rem;
-    padding: 1.5rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.05);
-    flex: 1 1 calc(50% - 0.75rem); /* Two cards per row on larger screens */
-    min-width: 280px; /* Minimum width for cards before wrapping */
-    box-sizing: border-box;
-    text-align: left;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.car-era-card:hover::before {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 0.15;
 }
 
-.champion-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6), inset 0 0 12px rgba(255, 255, 255, 0.1);
+.car-era-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.2);
+    border-color: #00bcd4; /* Teal accent for hover */
 }
 
-.champion-card h4 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 0.8rem;
-    color: #e0e0e0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+.car-era-photo {
+    width: 100%;
+    height: 220px; /* Consistent photo height */
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 4px solid #e63946; /* Red accent for photos */
+    filter: brightness(0.9) contrast(1.1);
+    transition: all 0.4s ease-in-out;
 }
 
-.champion-card p {
-    font-size: 1.1rem;
-    color: #c8c8c8;
-    margin: 0;
-    line-height: 1.5;
+.car-era-card:hover .car-era-photo {
+    filter: brightness(1.1) contrast(1.2);
+    border-color: #00bcd4; /* Change border color on hover */
 }
 
-.champion-card p strong {
+.car-era-card h4 {
+    font-size: 2.2rem;
+    font-weight: 900;
     color: #fff;
-    font-weight: 800;
+    margin-bottom: 1.2rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    z-index: 1;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
 }
 
-/* Specific colors for driver and constructor cards */
-.driver-champion {
-    border-left: 5px solid #e63946; /* Red accent for driver champion */
+.car-era-card .car-era-description {
+    font-size: 1.15rem;
+    color: #c8c8c8;
+    line-height: 1.9;
+    text-align: left;
+    margin-top: 1rem;
+    flex-grow: 1;
+    z-index: 1;
 }
 
-.constructor-champion {
-    border-left: 5px solid #00bcd4; /* Teal accent for constructor champion */
+.car-era-card .car-era-description strong {
+    color: #f0f0f0;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.5rem;
 }
 
 
 /* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-    .container {
-        padding: 2.5rem;
+@media (max-width: 1300px) { /* Adjust for 3 columns on larger screens */
+    .car-evolution-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
     }
-    .timeline-header-visual {
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem;
+    }
+    .f1-logo {
+        max-width: 160px;
+    }
+    nav ul {
+        gap: 2rem;
+        font-size: 1.2rem;
+    }
+    .car-evolutions-header-visual {
         height: 280px;
         margin-bottom: 3rem;
     }
@@ -448,49 +406,33 @@ main.main-content {
     .header-overlay-title-area p {
         font-size: 1.4rem;
     }
-    .timeline-introduction {
-        padding: 2.5rem;
-        margin-bottom: 3.5rem;
+    .evolution-section {
+        padding: 2rem;
     }
-    .timeline-introduction h3 {
-        font-size: 2.8rem;
+    .evolution-section h3 {
+        font-size: 2.4rem;
         letter-spacing: 2px;
     }
-    .timeline-introduction h3::after {
+    .evolution-section h3::after {
         width: 150px;
         height: 6px;
     }
-    .championship-timeline-section {
-        padding: 2.5rem;
+    .car-evolution-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for 2-3 columns on tablets */
+        gap: 2rem;
     }
-    .championship-timeline-section h3 {
-        font-size: 2.8rem;
-        letter-spacing: 2px;
+    .car-era-card {
+        padding: 1.8rem;
+        border-radius: 1rem;
     }
-    .championship-timeline-section h3::after {
-        width: 150px;
-        height: 6px;
+    .car-era-photo {
+        height: 180px;
+        margin-bottom: 1.5rem;
     }
-    .timeline-grid {
-        gap: 1.5rem 2rem;
+    .car-era-card h4 {
+        font-size: 1.8rem;
     }
-    .timeline-year {
-        font-size: 2.2rem;
-        padding-right: 1.5rem;
-    }
-    .timeline-year::after {
-        width: 18px;
-        height: 18px;
-    }
-    .champion-card {
-        padding: 1.2rem;
-        flex: 1 1 calc(50% - 0.75rem);
-        min-width: 250px;
-    }
-    .champion-card h4 {
-        font-size: 1.3rem;
-    }
-    .champion-card p {
+    .car-era-card .car-era-description {
         font-size: 1rem;
     }
 }
@@ -528,7 +470,7 @@ main.main-content {
         margin-bottom: 1.5rem;
         padding: 0 1.5rem;
     }
-    .timeline-header-visual {
+    .car-evolutions-header-visual {
         height: 220px;
         margin-bottom: 2.5rem;
         border-radius: 0.8rem;
@@ -546,73 +488,42 @@ main.main-content {
     .header-overlay-title-area p {
         font-size: 1.2rem;
     }
-    .timeline-introduction {
+    .evolution-section {
         padding: 1.8rem;
         margin-bottom: 3rem;
         border-radius: 0.8rem;
     }
-    .timeline-introduction h3 {
+    .evolution-section h3 {
         font-size: 2.2rem;
         margin-bottom: 2rem;
         letter-spacing: 1.5px;
         padding-bottom: 0.8rem;
     }
-    .timeline-introduction h3::after {
+    .evolution-section h3::after {
         width: 120px;
         height: 5px;
         margin-top: 0.8rem;
     }
-    .timeline-introduction p {
-        font-size: 1.1rem;
+    .car-evolution-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+        gap: 2rem;
     }
-    .championship-timeline-section {
-        padding: 1.8rem;
+    .car-era-card {
+        padding: 1.5rem;
+        border-radius: 0.9rem;
     }
-    .championship-timeline-section h3 {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-        letter-spacing: 1.5px;
-        padding-bottom: 0.8rem;
-    }
-    .championship-timeline-section h3::after {
-        width: 120px;
-        height: 5px;
-        margin-top: 0.8rem;
-    }
-    .timeline-grid {
-        grid-template-columns: 100px 1fr; /* Adjust column width for year */
-        gap: 1.5rem 1.5rem;
-        padding-left: 15px; /* Adjust vertical line position */
-    }
-    .timeline-grid::before {
-        left: 30px; /* Adjust vertical line position */
-        width: 3px;
-    }
-    .timeline-year {
-        font-size: 1.8rem;
-        padding-right: 1rem;
-    }
-    .timeline-year::after {
-        width: 15px;
-        height: 15px;
-        border-width: 2px;
-    }
-    .timeline-content {
-        flex-direction: column; /* Stack champion cards vertically */
-        gap: 1rem;
-        padding-bottom: 1.5rem;
+    .car-era-photo {
+        height: 160px;
         margin-bottom: 1.5rem;
+        border-width: 3px;
     }
-    .champion-card {
-        padding: 1rem;
-        flex: 1 1 100%; /* Full width for cards */
-        min-width: unset;
+    .car-era-card h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
     }
-    .champion-card h4 {
-        font-size: 1.2rem;
-    }
-    .champion-card p {
-        font-size: 0.9rem;
+    .car-era-card .car-era-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
     }
 }
 
@@ -650,7 +561,7 @@ main.main-content {
         margin-bottom: 1rem;
         padding: 0 1rem;
     }
-    .timeline-header-visual {
+    .car-evolutions-header-visual {
         height: 180px;
         margin-bottom: 2rem;
         border-radius: 0.7rem;
@@ -669,70 +580,40 @@ main.main-content {
     .header-overlay-title-area p {
         font-size: 0.9rem;
     }
-    .timeline-introduction {
+    .evolution-section {
         padding: 1.2rem;
         margin-bottom: 2rem;
         border-radius: 0.7rem;
     }
-    .timeline-introduction h3 {
+    .evolution-section h3 {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
         letter-spacing: 1px;
         padding-bottom: 0.6rem;
     }
-    .timeline-introduction h3::after {
+    .evolution-section h3::after {
         width: 100px;
         height: 4px;
         margin-top: 0.6rem;
     }
-    .timeline-introduction p {
-        font-size: 0.9rem;
-    }
-    .championship-timeline-section {
+    .car-era-card {
         padding: 1.2rem;
+        border-radius: 0.8rem;
     }
-    .championship-timeline-section h3 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-        letter-spacing: 1px;
-        padding-bottom: 0.6rem;
+    .car-era-photo {
+        height: 140px;
+        margin-bottom: 1.2rem;
+        border-width: 2px;
     }
-    .championship-timeline-section h3::after {
-        width: 100px;
-        height: 4px;
-        margin-top: 0.6rem;
+    .car-era-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
     }
-    .timeline-grid {
-        grid-template-columns: 80px 1fr; /* Further adjust column width for year */
-        gap: 1rem 1rem;
-        padding-left: 10px;
+    .car-era-card .car-era-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
     }
-    .timeline-grid::before {
-        left: 20px;
-        width: 2px;
-    }
-    .timeline-year {
-        font-size: 1.5rem;
-        padding-right: 0.8rem;
-    }
-    .timeline-year::after {
-        width: 12px;
-        height: 12px;
-        border-width: 1px;
-    }
-    .timeline-content {
-        gap: 0.8rem;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-    }
-    .champion-card {
-        padding: 0.8rem;
-    }
-    .champion-card h4 {
-        font-size: 1rem;
-        margin-bottom: 0.6rem;
-    }
-    .champion-card p {
-        font-size: 0.8rem;
+    .car-era-card .car-era-description strong {
+        margin-top: 0.2rem;
     }
 }
