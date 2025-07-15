@@ -3,25 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Important Moments</title>
+    <title>F1 Hub - Iconic Moments</title>
+    <link rel="icon" type="image/x-icon" href="images/F1-Logo.png"> 
+    <link rel="stylesheet" href="styles/moments.css"> 
 </head>
 <body>
-    <header>
-        <h4>
-            Important Moments(Work in Progress)
-        </h4>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="timeline.html">F1 Timeline</a>
-            <a href="driver_prof.html">Driver Profiles</a>
-            <a href="team_hist.html">Team History</a>
-            <a href="circ.html">Circuits Archive</a>
-            <a href="cars.html">Technical Evolution</a>
-            <a href="moments.html">Historic Moments</a>
-        </nav>
-    </header>
-    <main>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="images/F1-Logo.png" alt="Formula 1 Logo" class="f1-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="timeline.html">TIMELINE</a></li>
+                    <li><a href="driver_prof.html">DRIVER PROFILE</a></li>
+                    <li><a href="team_hist.html">TEAM HISTORY</a></li>
+                    <li><a href="circ.html">CIRCUITS</a></li>
+                    <li><a href="cars.html">CAR EVOLUTIONS</a></li>
+                    <li><a href="moments.html">MOMENTS</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content">
+            <div class="moments-header-visual">
+                <img src="images/moments_header.jpg" alt="Iconic F1 Moment" class="moments-background-image">
+                <div class="header-overlay-title-area">
+                    <h2>Iconic Moments in F1 History</h2>
+                    <p>Relive the most thrilling, dramatic, and unforgettable events that shaped Formula 1.</p>
+                </div>
+            </div>
 
-    </main>
+            <section class="moments-section">
+                <h3>Unforgettable Chapters of Formula 1</h3>
+                <div class="moments-grid">
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <video autoplay loop playsinline src="videos/arytonvssenna.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Senna vs. Prost: Suzuka 1990</h4>
+                        <p class="moment-description">
+                            The infamous first-corner collision at the 1990 Japanese Grand Prix between Ayrton Senna and Alain Prost, effectively deciding the World Championship in Senna's favor. A moment of intense rivalry and controversy that remains debated to this day.
+                        </p>
+                    </div>
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <video autoplay loop playsinline src="videos/shumach_win.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Schumacher's First Ferrari Title: Suzuka 2000</h4>
+                        <p class="moment-description">
+                            After years of trying, Michael Schumacher finally clinched his first Drivers' Championship with Ferrari at Suzuka, ending a 21-year title drought for the Scuderia. This moment marked the beginning of Ferrari's dominant golden era.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Hamilton's First Title - Brazil 2008 -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_3.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/hamilton.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Hamilton's Dramatic First Title: Brazil 2008</h4>
+                        <p class="moment-description">
+                            Lewis Hamilton secured his maiden World Championship on the very last corner of the very last lap of the Brazilian Grand Prix, snatching the title from Felipe Massa in one of F1's most breathtaking finishes.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Brawn GP's Cinderella Story - 2009 -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_4.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/brawn_gp.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Brawn GP's Cinderella Story: 2009</h4>
+                        <p class="moment-description">
+                            Emerging from the ashes of Honda's withdrawal, Brawn GP, led by Ross Brawn, achieved an unprecedented feat by winning both the Drivers' (Jenson Button) and Constructors' Championships in their only season. A true underdog triumph.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Vettel's Fourth Title - India 2013 -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_5.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/vettel.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Vettel's Dominant Fourth Title: India 2013</h4>
+                        <p class="moment-description">
+                            Sebastian Vettel secured his fourth consecutive World Championship in dominant fashion at the Indian Grand Prix, celebrating with a memorable donut display. This cemented his place as one of F1's all-time greats.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Verstappen's First Title - Abu Dhabi 2021 -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_6.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/verstappen.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Verstappen's Controversial First Title: Abu Dhabi 2021</h4>
+                        <p class="moment-description">
+                            The highly dramatic and controversial climax to the 2021 season saw Max Verstappen overtake Lewis Hamilton on the final lap of the Abu Dhabi Grand Prix to win his first World Championship, following a contentious safety car restart.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Lauda's Comeback - 1976 -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_7.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/niki.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Niki Lauda's Miraculous Comeback: 1976</h4>
+                        <p class="moment-description">
+                            Just six weeks after a near-fatal crash at the Nürburgring, Niki Lauda returned to racing at the Italian Grand Prix, demonstrating unparalleled courage and determination, a true testament to his fighting spirit.
+                        </p>
+                    </div>
+
+                    <!-- Moment Card: Monaco 1982 - The Craziest Race -->
+                    <div class="moment-card">
+                        <div class="video-container moment-photo">
+                            <!-- Replace 'your_video_8.mp4' with the actual path to your video file -->
+                            <video autoplay loop playsinline src="videos/monaco.mp4" controls loop muted></video>
+                        </div>
+                        <h4>Monaco 1982: The Craziest Race</h4>
+                        <p class="moment-description">
+                            The 1982 Monaco Grand Prix featured a chaotic final few laps where the lead changed hands multiple times due to crashes, fuel issues, and spins, before Riccardo Patrese ultimately took a surprising victory.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /*
- * driver_prof.css
- * This file contains custom CSS rules specifically for the Driver Profile page.
+ * styles/driver-profile.css
+ * This file contains custom CSS rules specifically for the F1 Driver Profile page.
  */
 
 /* Import the Inter font from Google Fonts */
@@ -12,54 +12,50 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #2a2a2a; /* Slightly darker background for more depth */
+    background-color: #1c1c1c; /* Even darker background for more contrast */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
     box-sizing: border-box;
-    color: #eee;
+    color: #f0f0f0; /* Lighter base text color */
 }
 
 .container {
-    background-color: #1a1a1a; /* Darker content area for a sleek look */
-    border-radius: 0.75rem; /* More rounded corners */
-    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.4), 0 6px 10px -3px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-    padding: 2.5rem; /* Increased padding */
-    max-width: 1440px; /* Increased width to accommodate 4 columns */
+    background-color: #0d0d0d; /* Very dark content area, almost black */
+    border-radius: 1rem; /* More pronounced rounded corners */
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 10px 15px -5px rgba(0, 0, 0, 0.4); /* Deeper, more diffused shadow */
+    padding: 3rem; /* Increased padding */
+    max-width: 1440px; /* Consistent max-width for wider layouts */
     width: 95%;
-    margin: 2rem 0;
-    border: 1px solid #444; /* Subtle border */
+    margin: 2.5rem 0; /* More margin top/bottom */
+    border: 1px solid #333; /* Slightly darker subtle border */
 }
 
-/* Header Section (copied from home.css for consistency) */
+/* Header Section (consistent across the website) */
 header {
     text-align: left;
-    padding-bottom: 1.8rem; /* More spacing */
-    border-bottom: 2px solid #555; /* Darker, more prominent border */
-    margin-bottom: 2.5rem; /* More spacing */
+    padding-bottom: 2rem; /* More spacing */
+    border-bottom: 2px solid #444; /* Darker, more prominent border */
+    margin-bottom: 3rem; /* More spacing */
     width: 100%;
 }
 
-/* F1 Logo Styling (copied from home.css for consistency) */
+/* F1 Logo Styling (consistent across the website) */
 .f1-logo {
-    max-width: 180px; /* Slightly larger logo */
+    max-width: 200px; /* Larger logo */
     height: auto;
     display: block;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem; /* More space below logo */
 }
 
-header h1 { /* Keeping this for fallback, but it's hidden if img is present */
-    display: none;
-}
-
-/* Navigation (copied from home.css for consistency) */
+/* Navigation (consistent across the website) */
 nav {
-    background-color: #333; /* Darker background for nav */
-    padding: 1.2rem; /* Increased padding */
-    border-radius: 0.5rem; /* More rounded */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    background-color: #222222; /* Darker background for nav */
+    padding: 1.5rem; /* Increased padding */
+    border-radius: 0.75rem; /* More rounded */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
     width: 100%;
     box-sizing: border-box;
 }
@@ -68,29 +64,29 @@ nav ul {
     display: flex;
     flex-wrap: nowrap; /* Prevent items from wrapping */
     justify-content: center;
-    gap: 2.5rem; /* More space between nav items */
+    gap: 3rem; /* More space between nav items */
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 1.3rem; /* Slightly larger font */
-    font-weight: 600;
-    color: #ccc; /* Slightly lighter text for contrast */
+    font-size: 1.4rem; /* Slightly larger font */
+    font-weight: 700; /* Bolder font */
+    color: #b0b0b0; /* Softer text color for contrast */
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: #d9534f #444; /* Adjusted scrollbar color */
+    scrollbar-color: #e63946 #333; /* Adjusted scrollbar color to match accent */
     scroll-snap-type: x mandatory;
-    padding-bottom: 0.6rem;
+    padding-bottom: 0.8rem;
 }
 
 /* Custom Webkit scrollbar styles */
 nav ul::-webkit-scrollbar {
-    height: 10px; /* Taller scrollbar */
+    height: 12px; /* Taller scrollbar */
 }
 
 nav ul::-webkit-scrollbar-track {
-    background: #444;
+    background: #333;
     border-radius: 10px;
 }
 
@@ -116,43 +112,56 @@ nav ul li {
 nav a {
     text-decoration: none;
     color: inherit;
-    padding: 0.8rem 1.2rem; /* More padding for links */
-    border-radius: 0.4rem;
-    transition: all 0.3s ease-in-out; /* Smooth transition for all properties */
+    padding: 1rem 1.5rem; /* More padding for links */
+    border-radius: 0.5rem;
+    transition: all 0.4s ease-in-out; /* Smoother transition */
+    position: relative; /* For pseudo-element effects */
+    overflow: hidden; /* For hover glow */
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(230, 57, 70, 0.3); /* Subtle glow color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
 }
 
 nav a:hover {
     color: #fff;
     background-color: #e63946; /* More vibrant red */
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
-/* Main Content Sections (general styling for all pages, including driver-profile) */
+/* Main Content Area */
 main.main-content {
-    margin-top: 2.5rem;
-    margin-bottom: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 2.5rem;
     box-sizing: border-box;
-}
-
-main.main-content h2 { /* This rule is now effectively superseded by .video-overlay-title-area h2 for the driver profile page */
-    font-size: 2.5rem; /* Larger heading for the page title */
-    font-weight: 800;
-    color: #e63946; /* Vibrant red accent */
-    margin-bottom: 2rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 /* --- Video Background Section --- */
 .profile-header-visual {
     position: relative;
     width: 100%;
-    height: 250px; /* Increased height for better visual impact */
+    height: 400px; /* Increased height for better visual impact */
     margin-bottom: 3rem; /* More space below the header visual */
     border-radius: 0.75rem;
     overflow: hidden;
@@ -461,7 +470,7 @@ main.main-content h2 { /* This rule is now effectively superseded by .video-over
 
 @media (max-width: 1024px) {
     .profile-header-visual {
-        height: 200px;
+        height: 320px; /* Adjusted height for medium screens */
         margin-bottom: 2.5rem;
     }
     .video-overlay-title-area h2 {
@@ -499,6 +508,7 @@ main.main-content h2 { /* This rule is now effectively superseded by .video-over
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem;
+        border-radius: 0.8rem;
     }
 
     .f1-logo {
@@ -516,13 +526,13 @@ main.main-content h2 { /* This rule is now effectively superseded by .video-over
     }
 
     .profile-header-visual {
-        height: 150px;
+        height: 240px; /* Adjusted height for small screens */
         margin-bottom: 2rem;
     }
-    .video-overlay-title-area h2 {
+    .video-overlay-content h2 {
         font-size: 2rem;
     }
-    .video-overlay-title-area p {
+    .video-overlay-content p {
         font-size: 0.9rem;
     }
     .team-section {
@@ -581,14 +591,14 @@ main.main-content h2 { /* This rule is now effectively superseded by .video-over
     }
 
     .profile-header-visual {
-        height: 120px; /* Smaller height for very small screens */
+        height: 190px; /* Further adjusted height for very small screens */
         margin-bottom: 1.5rem;
     }
-    .video-overlay-title-area h2 {
+    .video-overlay-content h2 {
         font-size: 1.5rem;
         letter-spacing: 1px;
     }
-    .video-overlay-title-area p {
+    .video-overlay-content p {
         font-size: 0.8rem;
         max-width: 90%;
     }

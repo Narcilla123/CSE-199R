@@ -316,17 +316,21 @@ main.main-content {
 
 .timeline-grid {
     display: grid;
-    /* Two columns for year and content */
-    grid-template-columns: 150px 1fr; /* Fixed width for year, fluid for content */
-    gap: 2rem 3rem; /* Row gap and column gap */
+    /* Three columns: left content, center line/year, right content */
+    grid-template-columns: 1fr auto 1fr;
+    /* Gap between rows, and between columns (left-center, center-right) */
+    gap: 2rem 3rem;
     position: relative;
-    padding-left: 20px; /* Space for the vertical line */
+    /* No padding-left here, as the line is now truly central */
+    padding-left: 0;
 }
 
+/* The central vertical line for the timeline */
 .timeline-grid::before {
     content: '';
     position: absolute;
-    left: 45px; /* Position the vertical line */
+    left: 50%; /* Center the line */
+    transform: translateX(-50%); /* Adjust for its own width */
     top: 0;
     bottom: 0;
     width: 4px; /* Thickness of the line */
@@ -335,65 +339,101 @@ main.main-content {
     z-index: 0;
 }
 
-.timeline-entry {
-    display: contents; /* Allows children to be direct grid items */
+/* Styling for the left content (Driver Champion) */
+.timeline-item-left {
+    grid-column: 1 / 2; /* Place in the first column */
+    text-align: right; /* Align content to the right edge of its column */
+    padding-right: 2rem; /* Space between card and central line */
+    position: relative; /* For staggering */
+}
+
+/* Styling for the center content (Year and its dot) */
+.timeline-item-center {
+    grid-column: 2 / 3; /* Place in the second (center) column */
+    display: flex;
+    align-items: center; /* Vertically center the year */
+    justify-content: center; /* Horizontally center the year */
+    position: relative;
+    z-index: 1; /* Ensure year is above the line */
 }
 
 .timeline-year {
-    grid-column: 1 / 2; /* Place year in the first column */
     font-size: 2.5rem; /* Larger year font */
     font-weight: 900;
     color: #00bcd4; /* Teal color for years */
-    text-align: right;
-    padding-right: 2rem; /* Space between year and line */
-    position: relative;
-    z-index: 1; /* Ensure year is above the line */
-    line-height: 1; /* Adjust line height to prevent extra space */
-    align-self: center; /* Vertically align in the middle of its row */
+    line-height: 1;
+    background-color: #0d0d0d; /* Background to make year stand out on the line */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.4);
 }
 
 .timeline-year::after {
     content: '';
-    position: absolute;
-    right: -10px; /* Position the dot on the line */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px; /* Size of the dot */
-    height: 20px;
-    background-color: #e63946; /* Red dot */
-    border-radius: 50%;
-    border: 3px solid #0d0d0d; /* Dark border to stand out from line */
-    box-shadow: 0 0 10px rgba(230, 57, 70, 0.8);
-    z-index: 2;
+    display: none; /* Hide the dot */
 }
 
-.timeline-content {
-    grid-column: 2 / 3; /* Place content in the second column */
-    display: flex;
-    flex-wrap: wrap; /* Allow champion cards to wrap */
-    gap: 1.5rem; /* Space between champion cards */
-    padding-bottom: 2rem; /* Space after content for the next entry */
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.1); /* Subtle separator between entries */
-    margin-bottom: 2rem; /* Space between entries */
+/* Styling for the right content (Constructor Champion) */
+.timeline-item-right {
+    grid-column: 3 / 4; /* Place in the third column */
+    text-align: left; /* Align content to the left edge of its column */
+    padding-left: 2rem; /* Space between card and central line */
+    position: relative; /* For staggering */
 }
 
-.timeline-content:last-child {
-    border-bottom: none; /* No border for the last entry */
-    margin-bottom: 0;
-    padding-bottom: 0;
+/* Staggered effect for alternating rows */
+/* Each year's entry consists of 3 items (left, center, right) followed by a separator.
+   We target the first item of each year's entry (timeline-item-left)
+   and apply margin-top to it and its corresponding `timeline-item-center` and `timeline-item-right`.
+   The pattern for the `timeline-item-left` elements is `nth-child(4n + 1)`.
+   We want to stagger every *other* year block.
+   So, year blocks starting at `nth-child(4n + 1)` where `n` is even (0, 2, 4...) will have `margin-top: 0`.
+   Year blocks starting at `nth-child(4n + 1)` where `n` is odd (1, 3, 5...) will have `margin-top: 4rem`.
+
+   This translates to:
+   - No stagger for `timeline-item-left` at `1, 9, 17, ...` (i.e., `8n + 1`) and their corresponding `center` and `right` items.
+   - Stagger for `timeline-item-left` at `5, 13, 21, ...` (i.e., `8n + 5`) and their corresponding `center` and `right` items.
+*/
+
+.timeline-grid > .timeline-item-left:nth-child(8n + 1),
+.timeline-grid > .timeline-item-center:nth-child(8n + 2),
+.timeline-grid > .timeline-item-right:nth-child(8n + 3) {
+    margin-top: 0;
 }
+
+.timeline-grid > .timeline-item-left:nth-child(8n + 5),
+.timeline-grid > .timeline-item-center:nth-child(8n + 6),
+.timeline-grid > .timeline-item-right:nth-child(8n + 7) {
+    margin-top: 4rem; /* Increased stagger for the entire row */
+}
+
+
+/* Separator between year rows */
+.timeline-separator {
+    grid-column: 1 / -1; /* Span all columns */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0; /* Space above and below separator */
+}
+.timeline-grid > *:last-child.timeline-separator {
+    display: none; /* Hide the last separator */
+}
+
 
 .champion-card {
     background: linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(50, 50, 50, 0.95) 100%);
     border-radius: 0.8rem;
-    padding: 1.5rem;
+    padding: 1rem; /* Smaller padding for smaller boxes */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), inset 0 0 8px rgba(255, 255, 255, 0.05);
-    flex: 1 1 calc(50% - 0.75rem); /* Two cards per row on larger screens */
-    min-width: 280px; /* Minimum width for cards before wrapping */
+    width: 100%; /* Take full width of its grid column */
     box-sizing: border-box;
     text-align: left;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: 100px; /* Smaller minimum height */
+    display: flex; /* Use flex to align content within card */
+    flex-direction: column;
+    justify-content: center;
 }
 
 .champion-card:hover {
@@ -402,16 +442,16 @@ main.main-content {
 }
 
 .champion-card h4 {
-    font-size: 1.5rem;
+    font-size: 1.4rem; /* Smaller font size */
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem; /* Reduced margin */
     color: #e0e0e0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .champion-card p {
-    font-size: 1.1rem;
+    font-size: 1rem; /* Smaller font size */
     color: #c8c8c8;
     margin: 0;
     line-height: 1.5;
@@ -460,6 +500,9 @@ main.main-content {
         width: 150px;
         height: 6px;
     }
+    .timeline-introduction p {
+        font-size: 1.1rem;
+    }
     .championship-timeline-section {
         padding: 2.5rem;
     }
@@ -476,22 +519,30 @@ main.main-content {
     }
     .timeline-year {
         font-size: 2.2rem;
-        padding-right: 1.5rem;
+        padding: 0.4rem 0.8rem;
     }
     .timeline-year::after {
         width: 18px;
         height: 18px;
     }
+    .timeline-item-left, .timeline-item-right {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    }
+    .timeline-grid > .timeline-item-left:nth-child(8n + 5),
+    .timeline-grid > .timeline-item-center:nth-child(8n + 6),
+    .timeline-grid > .timeline-item-right:nth-child(8n + 7) {
+        margin-top: 3rem; /* Adjusted stagger for medium screens */
+    }
     .champion-card {
-        padding: 1.2rem;
-        flex: 1 1 calc(50% - 0.75rem);
-        min-width: 250px;
+        padding: 0.8rem;
+        min-height: 80px; /* Adjusted min-height */
     }
     .champion-card h4 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     .champion-card p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -580,39 +631,42 @@ main.main-content {
         margin-top: 0.8rem;
     }
     .timeline-grid {
-        grid-template-columns: 100px 1fr; /* Adjust column width for year */
-        gap: 1.5rem 1.5rem;
-        padding-left: 15px; /* Adjust vertical line position */
+        /* On small screens, stack everything vertically */
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Reduced gap when stacked */
     }
     .timeline-grid::before {
-        left: 30px; /* Adjust vertical line position */
-        width: 3px;
+        display: none; /* Hide central line on small screens */
+    }
+    .timeline-item-left,
+    .timeline-item-center,
+    .timeline-item-right {
+        grid-column: 1 / -1; /* All items span full width */
+        text-align: center; /* Center content when stacked */
+        padding-left: 0;
+        padding-right: 0;
+        margin-top: 0 !important; /* Remove all staggering on small screens */
     }
     .timeline-year {
-        font-size: 1.8rem;
-        padding-right: 1rem;
+        font-size: 2rem;
+        margin-bottom: 0.5rem; /* Space below year when stacked */
+        padding: 0.3rem 0.6rem;
     }
     .timeline-year::after {
-        width: 15px;
-        height: 15px;
-        border-width: 2px;
-    }
-    .timeline-content {
-        flex-direction: column; /* Stack champion cards vertically */
-        gap: 1rem;
-        padding-bottom: 1.5rem;
-        margin-bottom: 1.5rem;
+        display: none; /* Hide dot when stacked */
     }
     .champion-card {
         padding: 1rem;
-        flex: 1 1 100%; /* Full width for cards */
-        min-width: unset;
+        min-height: unset; /* Allow height to be dynamic */
     }
     .champion-card h4 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
     .champion-card p {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+    .timeline-separator {
+        margin: 1.5rem 0; /* Adjust separator spacing for stacked layout */
     }
 }
 
@@ -702,37 +756,21 @@ main.main-content {
         height: 4px;
         margin-top: 0.6rem;
     }
-    .timeline-grid {
-        grid-template-columns: 80px 1fr; /* Further adjust column width for year */
-        gap: 1rem 1rem;
-        padding-left: 10px;
-    }
-    .timeline-grid::before {
-        left: 20px;
-        width: 2px;
-    }
     .timeline-year {
         font-size: 1.5rem;
-        padding-right: 0.8rem;
-    }
-    .timeline-year::after {
-        width: 12px;
-        height: 12px;
-        border-width: 1px;
-    }
-    .timeline-content {
-        gap: 0.8rem;
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .champion-card {
         padding: 0.8rem;
     }
     .champion-card h4 {
-        font-size: 1rem;
+        font-size: 1.2rem;
         margin-bottom: 0.6rem;
     }
     .champion-card p {
         font-size: 0.8rem;
+    }
+    .timeline-separator {
+        margin: 1rem 0;
     }
 }

@@ -3,25 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teams History</title>
+    <title>F1 Hub - Team History</title>
+    <link rel="icon" type="image/x-icon" href="images/F1-Logo.png"> 
+    <link rel="stylesheet" href="styles/team_hist.css"> 
 </head>
 <body>
-    <header>
-        <h4>
-            Teams History(Work in Progress)
-        </h4>
-        <nav>
-            <a href="home.html">Home</a>
-            <a href="timeline.html">F1 Timeline</a>
-            <a href="driver_prof.html">Driver Profiles</a>
-            <a href="team_hist.html">Team History</a>
-            <a href="circ.html">Circuits Archive</a>
-            <a href="cars.html">Technical Evolution</a>
-            <a href="moments.html">Historic Moments</a>
-        </nav>
-    </header>
-    <main>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="images/F1-Logo.png" alt="Formula 1 Logo" class="f1-logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="timeline.html">TIMELINE</a></li>
+                    <li><a href="driver_prof.html">DRIVER PROFILE</a></li>
+                    <li><a href="team_hist.html">TEAM HISTORY</a></li>
+                    <li><a href="circ.html">CIRCUITS</a></li>
+                    <li><a href="cars.html">CAR EVOLUTIONS</a></li>
+                    <li><a href="moments.html">MOMENTS</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main class="main-content">
+            <div class="team-history-header-visual">
+                <img src="images/team_history_header.jpg" alt="F1 Team Garages" class="team-history-background-image">
+                <div class="header-overlay-title-area">
+                    <h2>The Legacy of Formula 1 Teams</h2>
+                    <p>Explore the illustrious history, triumphs, and challenges of the sport's most iconic constructors.</p>
+                </div>
+            </div>
 
-    </main>
+            <section class="team-history-introduction">
+                <h3>Giants of the Grid</h3>
+                <p>
+                    Formula 1 is not just about drivers; it's equally about the engineering prowess, strategic brilliance, and relentless dedication of the teams behind them. From humble beginnings in garages to multi-million dollar operations, these constructors have pushed the boundaries of automotive technology and motorsport competition. This section delves into the rich histories of some of F1's most legendary teams, highlighting their origins, key innovations, and championship successes.
+                </p>
+            </section>
+
+            <section class="teams-section">
+                <h3>Team Profiles</h3>
+                <div class="team-grid">
+
+                    <!-- Team Card: Ferrari -->
+                    <div class="team-card ferrari-theme">
+                        <img src="images/ferrari.png" alt="Scuderia Ferrari" class="team-logo">
+                        <h4>Scuderia Ferrari</h4>
+                        <p class="team-description">
+                            The oldest and most successful team in Formula 1 history, Scuderia Ferrari has been a constant presence since 1950. Founded by Enzo Ferrari, the team is synonymous with passion, red cars, and legendary drivers. They hold the record for most Constructors' Championships and Drivers' Championships.
+                            <br><br>
+                            <strong>Founded:</strong> 1929 (racing division), 1950 (F1 debut)<br>
+                            <strong>Base:</strong> Maranello, Italy<br>
+                            <strong>Championships:</strong> 16 Constructors', 15 Drivers'
+                        </p>
+                    </div>
+
+                    <!-- Team Card: Mercedes-AMG Petronas Formula One Team -->
+                    <div class="team-card mercedes-theme">
+                        <img src="images/merc.png" alt="Mercedes-AMG Petronas F1 Team" class="team-logo">
+                        <h4>Mercedes-AMG Petronas F1 Team</h4>
+                        <p class="team-description">
+                            While Mercedes had an early stint in F1, their modern era dominance began in 2010, leading to an unprecedented eight consecutive Constructors' Championships from 2014 to 2021. Known for their engineering excellence and hybrid power unit mastery.
+                            <br><br>
+                            <strong>Founded:</strong> 1970 (Tyrrell), 2010 (Mercedes-Benz works team)<br>
+                            <strong>Base:</strong> Brackley, UK<br>
+                            <strong>Championships:</strong> 8 Constructors', 9 Drivers' (as Mercedes works team)
+                        </p>
+                    </div>
+
+                    <!-- Team Card: McLaren Formula 1 Team -->
+                    <div class="team-card mclaren-theme">
+                        <img src="images/mclaren.png" alt="McLaren F1 Team" class="team-logo">
+                        <h4>McLaren Formula 1 Team</h4>
+                        <p class="team-description">
+                            Founded by Bruce McLaren in 1963, McLaren is one of F1's most historic and successful teams. They have a rich legacy of innovation and have won multiple championships with iconic drivers like Ayrton Senna and Lewis Hamilton.
+                            <br><br>
+                            <strong>Founded:</strong> 1963<br>
+                            <strong>Base:</strong> Woking, UK<br>
+                            <strong>Championships:</strong> 8 Constructors', 12 Drivers'
+                        </p>
+                    </div>
+
+                    <!-- Team Card: Red Bull Racing -->
+                    <div class="team-card redbull-theme">
+                        <img src="images/redbull.png" alt="Red Bull Racing" class="team-logo">
+                        <h4>Red Bull Racing</h4>
+                        <p class="team-description">
+                            Entering F1 in 2005, Red Bull Racing quickly rose to prominence, winning four consecutive Constructors' and Drivers' Championships from 2010-2013 with Sebastian Vettel, and another dominant period starting in 2022 with Max Verstappen. Known for aggressive design and strategic brilliance.
+                            <br><br>
+                            <strong>Founded:</strong> 2005<br>
+                            <strong>Base:</strong> Milton Keynes, UK<br>
+                            <strong>Championships:</strong> 6 Constructors', 7 Drivers'
+                        </p>
+                    </div>
+
+                    <!-- Team Card: Williams Racing -->
+                    <div class="team-card williams-theme">
+                        <img src="images/williams.png" alt="Williams Racing" class="team-logo">
+                        <h4>Williams Racing</h4>
+                        <p class="team-description">
+                            Founded by Frank Williams and Patrick Head, Williams Racing became a dominant force in the 1980s and 1990s, known for their engineering innovation and championship-winning cars. They have nurtured many legendary drivers.
+                            <br><br>
+                            <strong>Founded:</strong> 1977<br>
+                            <strong>Base:</strong> Grove, UK<br>
+                            <strong>Championships:</strong> 9 Constructors', 7 Drivers'
+                        </p>
+                    </div>
+
+                    <!-- Team Card: Aston Martin Aramco F1 Team -->
+                    <div class="team-card astonmartin-theme">
+                        <img src="images/aston.png" alt="Aston Martin F1 Team" class="team-logo">
+                        <h4>Aston Martin Aramco F1 Team</h4>
+                        <p class="team-description">
+                            Rebranded from Racing Point in 2021, Aston Martin brings a storied automotive name back to the F1 grid. The team is focused on long-term growth and aims to challenge for championships in the future.
+                            <br><br>
+                            <strong>Founded:</strong> 2021 (as Aston Martin)<br>
+                            <strong>Base:</strong> Silverstone, UK<br>
+                            <strong>Championships:</strong> 0 Constructors', 0 Drivers' (as Aston Martin)
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 </html>

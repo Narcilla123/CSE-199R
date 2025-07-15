@@ -1,0 +1,780 @@
+/*
+ * team_history.css
+ * This file contains custom CSS rules specifically for the Team History page.
+ */
+
+/* Import the Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Base Styles (consistent across the website) */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #1c1c1c; /* Even darker background for more contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    box-sizing: border-box;
+    color: #f0f0f0; /* Lighter base text color */
+}
+
+.container {
+    background-color: #0d0d0d; /* Very dark content area, almost black */
+    border-radius: 1rem; /* More pronounced rounded corners */
+    box-shadow: 0 20px 40px -8px rgba(0, 0, 0, 0.6), 0 10px 15px -5px rgba(0, 0, 0, 0.4); /* Deeper, more diffused shadow */
+    padding: 3rem; /* Increased padding */
+    max-width: 1440px; /* Consistent max-width for wider layouts */
+    width: 95%;
+    margin: 2.5rem 0; /* More margin top/bottom */
+    border: 1px solid #333; /* Slightly darker subtle border */
+}
+
+/* Header Section (consistent across the website) */
+header {
+    text-align: left;
+    padding-bottom: 2rem; /* More spacing */
+    border-bottom: 2px solid #444; /* Darker, more prominent border */
+    margin-bottom: 3rem; /* More spacing */
+    width: 100%;
+}
+
+/* F1 Logo Styling (consistent across the website) */
+.f1-logo {
+    max-width: 200px; /* Larger logo */
+    height: auto;
+    display: block;
+    margin-bottom: 1.8rem; /* More space below logo */
+}
+
+/* Navigation (consistent across the website) */
+nav {
+    background-color: #222222; /* Darker background for nav */
+    padding: 1.5rem; /* Increased padding */
+    border-radius: 0.75rem; /* More rounded */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent items from wrapping */
+    justify-content: center;
+    gap: 3rem; /* More space between nav items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem; /* Slightly larger font */
+    font-weight: 700; /* Bolder font */
+    color: #b0b0b0; /* Softer text color for contrast */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #e63946 #333; /* Adjusted scrollbar color to match accent */
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.8rem;
+}
+
+/* Custom Webkit scrollbar styles */
+nav ul::-webkit-scrollbar {
+    height: 12px; /* Taller scrollbar */
+}
+
+nav ul::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+nav ul::-webkit-scrollbar-thumb {
+    background: #e63946; /* More vibrant red */
+    border-radius: 10px;
+}
+
+nav ul::-webkit-scrollbar-thumb:hover {
+    background: #c21f2b; /* Darker red on hover */
+}
+
+nav ul li {
+    scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+    nav ul {
+        justify-content: flex-start;
+    }
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 1rem 1.5rem; /* More padding for links */
+    border-radius: 0.5rem;
+    transition: all 0.4s ease-in-out; /* Smoother transition */
+    position: relative; /* For pseudo-element effects */
+    overflow: hidden; /* For hover glow */
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(230, 57, 70, 0.3); /* Subtle glow color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    opacity: 0;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: #e63946; /* More vibrant red */
+    transform: translateY(-3px) scale(1.02); /* More pronounced lift and slight scale */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+/* Main Content Area */
+main.main-content {
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+    width: 100%;
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+}
+
+/* --- Team History Header Visual Section --- */
+.team-history-header-visual {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Consistent height with other header visuals */
+    margin-bottom: 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9), 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    border: 3px solid #666;
+    background: linear-gradient(45deg, #0f0f0f, #2a2a2a); /* Dark, subtle gradient fallback */
+}
+
+.team-history-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.4;
+    filter: brightness(0.7) grayscale(0.4);
+    transition: filter 0.6s ease-in-out;
+}
+
+.team-history-header-visual:hover .team-history-background-image {
+    filter: brightness(1) grayscale(0);
+    opacity: 0.6;
+}
+
+.header-overlay-title-area {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(13, 13, 13, 0.85) 0%, rgba(30, 30, 30, 0.85) 100%);
+    backdrop-filter: blur(5px);
+    padding: 2.5rem 4rem;
+    border-radius: 0.8rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 75%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.5s ease-in-out;
+}
+
+.team-history-header-visual:hover .header-overlay-title-area {
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.header-overlay-title-area h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #4CAF50; /* Green accent for Team History theme */
+    margin-bottom: 1.2rem;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    line-height: 1.1;
+}
+
+.header-overlay-title-area p {
+    font-size: 1.6rem;
+    color: #e0e0e0;
+    font-weight: 400;
+    line-height: 1.7;
+    margin: 0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    opacity: 0.9;
+}
+/* --- End Team History Header Visual Section --- */
+
+
+/* Team History Introduction Section */
+.team-history-introduction {
+    border-radius: 1rem;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(145deg, #161616 0%, #080808 100%);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+}
+
+.team-history-introduction h3 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #e63946; /* Red accent for introduction title */
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.team-history-introduction h3::after {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 7px;
+    background-color: #e63946;
+    margin: 1rem auto 0;
+    border-radius: 5px;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.6);
+}
+
+.team-history-introduction p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #c8c8c8;
+    max-width: 900px;
+    margin: 0 auto 1.5rem auto;
+}
+
+
+/* Teams Section (for team profiles) */
+.teams-section {
+    border-radius: 1rem;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(145deg, #161616 0%, #080808 100%);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.teams-section h3 {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #4CAF50; /* Green accent for section title */
+    margin-bottom: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.teams-section h3::after {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 7px;
+    background-color: #4CAF50; /* Matches title color */
+    margin: 1rem auto 0;
+    border-radius: 5px;
+    opacity: 0.9;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+    transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.teams-section:hover h3::after {
+    width: 220px;
+    box-shadow: 0 0 25px rgba(76, 175, 80, 0.8);
+}
+
+.team-grid {
+    display: grid;
+    /* Adjusted to allow 3 columns on wider screens */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3.5rem; /* Increased space between cards */
+    justify-content: center;
+    align-items: stretch;
+}
+
+.team-card {
+    background: linear-gradient(160deg, rgba(25, 25, 25, 0.98) 0%, rgba(50, 50, 50, 0.98) 100%);
+    border-radius: 1.2rem;
+    padding: 2.2rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.08);
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.5s ease-in-out;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(circle at 15% 15%, rgba(76, 175, 80, 0.08) 0%, transparent 40%), /* Green accent */
+                radial-gradient(circle at 85% 85%, rgba(230, 57, 70, 0.08) 0%, transparent 40%), /* Red accent */
+                linear-gradient(45deg, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+    transform: rotate(20deg);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in-out;
+    opacity: 0.8;
+}
+
+.team-card:hover::before {
+    transform: rotate(0deg) scale(1.1);
+    opacity: 0.15;
+}
+
+.team-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.2);
+    border-color: #4CAF50; /* Green accent for hover */
+}
+
+.team-logo {
+    width: 180px; /* Larger team logo */
+    height: auto;
+    object-fit: contain; /* Ensure logo fits without cropping */
+    border-radius: 0.8rem; /* Slightly rounded corners for logos */
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 4px solid #e63946; /* Red accent for logos */
+    filter: brightness(0.9) contrast(1.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.team-card:hover .team-logo {
+    filter: brightness(1.1) contrast(1.2);
+    border-color: #4CAF50; /* Change border color on hover */
+}
+
+.team-card h4 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+    z-index: 1;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.team-card .team-description {
+    font-size: 1.15rem;
+    color: #c8c8c8;
+    line-height: 1.9;
+    text-align: left;
+    margin-top: 1rem;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+.team-card .team-description strong {
+    color: #f0f0f0;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+
+/* Team Specific Themes */
+/* These will override the general team-card background and border-color on hover */
+
+/* Ferrari Theme */
+.ferrari-theme {
+    background: linear-gradient(145deg, #cc0000 0%, #800000 100%); /* Classic Ferrari Red */
+    border-color: #cc0000;
+}
+.ferrari-theme h4 { color: #fff; }
+.ferrari-theme .team-logo { border-color: #fff; } /* White accent */
+.ferrari-theme:hover { border-color: #cc0000; } /* Keep red on hover */
+
+/* Mercedes Theme */
+.mercedes-theme {
+    background: linear-gradient(145deg, #00d2be 0%, #00605c 100%); /* Classic Silver/Teal combo */
+    border-color: #00d2be;
+}
+.mercedes-theme h4 { color: #fff; }
+.mercedes-theme .team-logo { border-color: #c0c0c0; } /* Silver accent */
+.mercedes-theme:hover { border-color: #00d2be; }
+
+/* McLaren Theme */
+.mclaren-theme {
+    background: linear-gradient(145deg, #ff8700 0%, #e63946 100%); /* Bright Orange to Ferrari Red */
+    border-color: #ff8700;
+}
+.mclaren-theme h4 { color: #fff; }
+.mclaren-theme .team-logo { border-color: #00bfff; } /* Sky Blue accent for McLaren */
+.mclaren-theme:hover { border-color: #ff8700; }
+
+/* Red Bull Theme */
+.redbull-theme {
+    background: linear-gradient(145deg, #0a0a50 0%, #a00a30 100%); /* Deeper Blue to Richer Red */
+    border-color: #a00a30; /* Red accent border */
+}
+.redbull-theme h4 { color: #fff; }
+.redbull-theme .team-logo { border-color: #fedf00; } /* Gold accent for RB */
+.redbull-theme:hover { border-color: #a00a30; }
+
+/* Williams Theme */
+.williams-theme {
+    background: linear-gradient(145deg, #007bff 0%, #004d80 100%); /* Brighter Blue to Darker Blue */
+    border-color: #007bff;
+}
+.williams-theme h4 { color: #fff; }
+.williams-theme .team-logo { border-color: #e63946; } /* Red accent */
+.williams-theme:hover { border-color: #007bff; }
+
+/* Aston Martin Theme */
+.astonmartin-theme {
+    background: linear-gradient(145deg, #006b5d 0%, #00423c 100%); /* Deep British Racing Green */
+    border-color: #006b5d;
+}
+.astonmartin-theme h4 { color: #fff; }
+.astonmartin-theme .team-logo { border-color: #aacc00; } /* Lime green accent */
+.astonmartin-theme:hover { border-color: #006b5d; }
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1300px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust for 2-3 columns on larger screens */
+        gap: 2.5rem;
+    }
+    .team-card {
+        padding: 2rem;
+    }
+    .team-logo {
+        width: 160px;
+    }
+    .team-card h4 {
+        font-size: 2rem;
+    }
+    .team-card .team-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        padding: 2rem;
+    }
+    .f1-logo {
+        max-width: 160px;
+    }
+    nav ul {
+        gap: 2rem;
+        font-size: 1.2rem;
+    }
+    .team-history-header-visual {
+        height: 280px;
+        margin-bottom: 3rem;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 3.2rem;
+        letter-spacing: 2.5px;
+    }
+    .header-overlay-title-area p {
+        font-size: 1.4rem;
+    }
+    .team-history-introduction {
+        padding: 2rem;
+        margin-bottom: 3.5rem;
+    }
+    .team-history-introduction h3 {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+    .team-history-introduction h3::after {
+        width: 150px;
+        height: 6px;
+    }
+    .teams-section {
+        padding: 2rem;
+    }
+    .teams-section h3 {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+    .teams-section h3::after {
+        width: 150px;
+        height: 6px;
+    }
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust for 2 columns on tablets */
+        gap: 2rem;
+    }
+    .team-card {
+        padding: 1.8rem;
+        border-radius: 1rem;
+    }
+    .team-logo {
+        width: 150px;
+        margin-bottom: 1.5rem;
+    }
+    .team-card h4 {
+        font-size: 1.8rem;
+    }
+    .team-card .team-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+        border-radius: 0.8rem;
+    }
+    .f1-logo {
+        max-width: 140px;
+        margin-bottom: 1.2rem;
+    }
+    header {
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    nav {
+        padding: 1rem;
+        border-radius: 0.6rem;
+    }
+    nav ul {
+        gap: 1.5rem;
+        font-size: 1rem;
+        padding-bottom: 0.6rem;
+    }
+    nav ul::-webkit-scrollbar {
+        height: 8px;
+    }
+    nav a {
+        padding: 0.8rem 1.2rem;
+    }
+    main.main-content {
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    .team-history-header-visual {
+        height: 220px;
+        margin-bottom: 2.5rem;
+        border-radius: 0.8rem;
+    }
+    .header-overlay-title-area {
+        padding: 2rem 3rem;
+        border-radius: 0.7rem;
+        max-width: 90%;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
+    .header-overlay-title-area p {
+        font-size: 1.2rem;
+    }
+    .team-history-introduction {
+        padding: 1.8rem;
+        margin-bottom: 3rem;
+        border-radius: 0.8rem;
+    }
+    .team-history-introduction h3 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        letter-spacing: 1.5px;
+        padding-bottom: 0.8rem;
+    }
+    .team-history-introduction h3::after {
+        width: 120px;
+        height: 5px;
+        margin-top: 0.8rem;
+    }
+    .team-history-introduction p {
+        font-size: 1.1rem;
+    }
+    .teams-section {
+        padding: 1.8rem;
+        margin-bottom: 3rem;
+        border-radius: 0.8rem;
+    }
+    .teams-section h3 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+        letter-spacing: 1.5px;
+        padding-bottom: 0.8rem;
+    }
+    .teams-section h3::after {
+        width: 120px;
+        height: 5px;
+        margin-top: 0.8rem;
+    }
+    .team-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically on small screens */
+        gap: 2rem;
+    }
+    .team-card {
+        padding: 1.5rem;
+        border-radius: 0.9rem;
+    }
+    .team-logo {
+        width: 120px;
+        margin-bottom: 1.5rem;
+        border-width: 3px;
+    }
+    .team-card h4 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+    }
+    .team-card .team-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 0.7rem;
+    }
+    .f1-logo {
+        max-width: 100px;
+        margin-bottom: 1rem;
+    }
+    header {
+        padding-bottom: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    nav {
+        padding: 0.8rem;
+        border-radius: 0.5rem;
+    }
+    nav ul {
+        font-size: 0.8rem;
+        gap: 0.8rem;
+        padding-bottom: 0.4rem;
+    }
+    nav ul::-webkit-scrollbar {
+        height: 6px;
+    }
+    nav a {
+        padding: 0.6rem 1rem;
+    }
+    main.main-content {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    .team-history-header-visual {
+        height: 180px;
+        margin-bottom: 2rem;
+        border-radius: 0.7rem;
+        border-width: 2px;
+    }
+    .header-overlay-title-area {
+        padding: 1.5rem 2rem;
+        border-radius: 0.6rem;
+        max-width: 95%;
+    }
+    .header-overlay-title-area h2 {
+        font-size: 2rem;
+        letter-spacing: 1.5px;
+        margin-bottom: 0.8rem;
+    }
+    .header-overlay-title-area p {
+        font-size: 0.9rem;
+    }
+    .team-history-introduction {
+        padding: 1.2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.7rem;
+    }
+    .team-history-introduction h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        padding-bottom: 0.6rem;
+    }
+    .team-history-introduction h3::after {
+        width: 100px;
+        height: 4px;
+        margin-top: 0.6rem;
+    }
+    .team-history-introduction p {
+        font-size: 0.9rem;
+    }
+    .teams-section {
+        padding: 1.2rem;
+        margin-bottom: 2rem;
+        border-radius: 0.7rem;
+    }
+    .teams-section h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        padding-bottom: 0.6rem;
+    }
+    .teams-section h3::after {
+        width: 100px;
+        height: 4px;
+        margin-top: 0.6rem;
+    }
+    .team-card {
+        padding: 1.2rem;
+        border-radius: 0.8rem;
+    }
+    .team-logo {
+        width: 90px;
+        margin-bottom: 1.2rem;
+        border-width: 2px;
+    }
+    .team-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    .team-card .team-description {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+}
